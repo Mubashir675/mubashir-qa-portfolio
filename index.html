@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Muhammad Mubashir — QA Engineer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+<style>
+/* ─── RESET & VARIABLES ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #080C17;
+  --surface:   #0E1525;
+  --card:      #111D35;
+  --border:    #1C2D4A;
+  --border2:   #243554;
+  --text:      #CDD6F4;
+  --muted:     #6E81A8;
+  --accent:    #38BDF8;
+  --accent2:   #818CF8;
+  --accent3:   #34D399;
+  --white:     #F0F4FF;
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--white); }
+
+/* ─── GRID BACKGROUND ───────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── NAV ───────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  background: rgba(8, 12, 23, 0.85);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  height: 60px;
+}
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* ─── SECTIONS ──────────────────────────────────────────── */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 100px 10% 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── HERO ──────────────────────────────────────────────── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 80px;
+  max-width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 28px;
+  width: fit-content;
+  animation: fadeUp 0.6s ease both;
+}
+.hero-badge .dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent3);
+  animation: pulse 2s infinite;
+}
+
+.hero-name {
+  font-family: var(--font-head);
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+.hero-name span { color: var(--accent); }
+
+.hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 14px;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+.hero-desc {
+  max-width: 600px;
+  margin-top: 22px;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.75;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+.stat { display: flex; flex-direction: column; }
+.stat-num {
+  font-family: var(--font-head);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  margin-top: 44px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.5s ease both;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s;
+  border: none;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #080C17;
+}
+.btn-primary:hover {
+  background: var(--white);
+  color: #080C17;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(56, 189, 248, 0.3);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border2);
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  animation: fadeUp 1s 1s ease both;
+}
+.scroll-arrow {
+  width: 20px; height: 20px;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
+}
+
+/* ─── SECTION HEADER ────────────────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 52px;
+}
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.1;
+}
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border2), transparent);
+}
+
+/* ─── ABOUT ─────────────────────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.about-text p {
+  color: var(--text);
+  font-size: 15.5px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+.about-text p:last-child { margin-bottom: 0; }
+em { color: var(--accent); font-style: normal; font-weight: 600; }
+
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+.info-card:hover { border-color: var(--border2); }
+.info-card-icon { font-size: 22px; margin-bottom: 10px; }
+.info-card-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.info-card-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* ─── SKILLS ────────────────────────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.skill-group {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 26px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.skill-group:hover {
+  border-color: var(--border2);
+  transform: translateY(-3px);
+}
+.skill-group-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.skill-group-label::before {
+  content: '';
+  display: block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  background: rgba(56, 189, 248, 0.07);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  color: var(--text);
+  font-size: 12px;
+  font-family: var(--font-mono);
+  padding: 4px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.tag:hover {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--white);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+.tag.purple {
+  background: rgba(129, 140, 248, 0.07);
+  border-color: rgba(129, 140, 248, 0.18);
+}
+.tag.purple:hover { background: rgba(129, 140, 248, 0.15); border-color: rgba(129, 140, 248, 0.4); }
+.tag.green {
+  background: rgba(52, 211, 153, 0.07);
+  border-color: rgba(52, 211, 153, 0.18);
+}
+.tag.green:hover { background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.4); }
+
+/* ─── TOOLS STRIP ───────────────────────────────────────── */
+.tools-strip {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 28px;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.tools-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-right: 8px;
+}
+.tool-pill {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+.tool-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ─── EXPERIENCE ────────────────────────────────────────── */
+.exp-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.exp-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent2));
+}
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.exp-title {
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+}
+.exp-company { color: var(--accent); font-size: 15px; font-weight: 500; margin-top: 2px; }
+.exp-period {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 12px;
+}
+.exp-bullets {
+  margin-top: 22px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 30px;
+}
+.exp-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.55;
+}
+.exp-bullets li::before {
+  content: '→';
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ─── PROJECTS ──────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 22px;
+}
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.project-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+.project-card:hover::after { opacity: 1; }
+
+.project-type {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent2);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.project-name {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+.project-url {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: -4px;
+}
+.project-desc {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.65;
+  flex: 1;
+}
+.project-phases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.phase-chip {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: rgba(56, 189, 248, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  color: var(--accent);
+}
+
+/* ─── CONTACT ───────────────────────────────────────────── */
+.contact-wrapper {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.contact-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(56,189,248,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.contact-title {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+.contact-sub {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 36px;
+}
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ─── FOOTER ────────────────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── ANIMATIONS ────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+@keyframes bounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50%       { transform: rotate(45deg) translateY(5px); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  section { padding: 70px 6% 50px; }
+  .about-grid { grid-template-columns: 1fr; gap: 36px; }
+  .about-cards { grid-template-columns: 1fr 1fr; }
+  .exp-bullets { grid-template-columns: 1fr; }
+  .contact-wrapper { padding: 36px 24px; }
+  .hero-stats { gap: 24px; }
+  nav { padding: 0 6%; }
+  .nav-links { gap: 18px; }
+}
+@media (max-width: 480px) {
+  .nav-links { display: none; }
+  .about-cards { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">mm.qa</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Available for new opportunities
+  </div>
+  <h1 class="hero-name">Muhammad<br/><span>Mubashir</span></h1>
+  <p class="hero-title">QA Engineer · Manual, Web & Mobile Testing</p>
+  <p class="hero-desc">
+    I find what breaks before your users do. With 2+ years of hands-on QA across 15+ products,
+    I bring precision, structured thinking, and clear defect documentation to every release cycle.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">15+</span>
+      <span class="stat-label">Projects</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">2+</span>
+      <span class="stat-label">Years XP</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">9+</span>
+      <span class="stat-label">Domains</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Bug Trackers</span>
+    </div>
+  </div>
+  <div class="hero-cta">
+    <a href="mailto:mubashirhamid675@gmail.com" class="btn btn-primary">✉ Get In Touch</a>
+    <a href="https://linkedin.com" class="btn btn-outline">LinkedIn ↗</a>
+    <a href="#projects" class="btn btn-outline">View Projects</a>
+  </div>
+  <div class="scroll-indicator">
+    <span>scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-label">01 / About</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>
+        I'm a <em>Manual QA Engineer</em> based in Faisalabad, Pakistan, specialising in
+        end-to-end quality assurance for <em>SaaS, web, and mobile products</em>.
+        I've worked across a wide range of industries — from AI-powered platforms and
+        real estate CRMs to compliance systems, EdTech, and productivity suites.
+      </p>
+      <p>
+        My process is built on <em>structured test design</em>, clear defect communication,
+        and tight collaboration with developers and product managers throughout every
+        sprint cycle. I don't just find bugs — I document them so they stay fixed.
+      </p>
+      <p>
+        I work closely with cross-functional teams in Agile environments, covering
+        <em>functional, regression, exploratory, API, mobile, and UAT</em> testing
+        across complex multi-module applications.
+      </p>
+    </div>
+    <div class="about-cards">
+      <div class="info-card">
+        <div class="info-card-icon">📍</div>
+        <div class="info-card-label">Location</div>
+        <div class="info-card-value">Faisalabad, Pakistan</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🎓</div>
+        <div class="info-card-label">Education</div>
+        <div class="info-card-value">BSc Computer Science · GCUF</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">💼</div>
+        <div class="info-card-label">Experience</div>
+        <div class="info-card-value">2+ Years · Freelance QA</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🌐</div>
+        <div class="info-card-label">Domains Covered</div>
+        <div class="info-card-value">SaaS · CRM · EdTech · QMS · AI</div>
+      </div>
+      <div class="info-card" style="grid-column: span 2;">
+        <div class="info-card-icon">📬</div>
+        <div class="info-card-label">Email</div>
+        <div class="info-card-value">mubashirhamid675@gmail.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-label">02 / Skills</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <div class="skill-group-label">Testing Types</div>
+      <div class="skill-tags">
+        <span class="tag">Functional</span>
+        <span class="tag">Regression</span>
+        <span class="tag">Exploratory</span>
+        <span class="tag">Smoke</span>
+        <span class="tag">Sanity</span>
+        <span class="tag">UAT</span>
+        <span class="tag">UI Testing</span>
+        <span class="tag">Mobile Testing</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-label">API & Integration</div>
+      <div class="skill-tags">
+        <span class="tag purple">REST API Validation</span>
+        <span class="tag purple">Postman</span>
+        <span class="tag purple">Swagger</span>
+        <span class="tag purple">Positive/Negative Cases</span>
+        <span class="tag purple">Microservice Testing</span>
+        <span class="tag purple">Edge-Case Scenarios</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-label">Test Design & Defect Management</div>
+      <div class="skill-tags">
+        <span class="tag">Test Plans</span>
+        <span class="tag">Test Cases</span>
+        <span class="tag">Acceptance Criteria</span>
+        <span class="tag">Bug Reporting</span>
+        <span class="tag">Severity Classification</span>
+        <span class="tag">Reproducible Evidence</span>
+        <span class="tag">Retesting</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-label">Tracking & Collaboration</div>
+      <div class="skill-tags">
+        <span class="tag green">Jira</span>
+        <span class="tag green">ClickUp</span>
+        <span class="tag green">Linear</span>
+        <span class="tag green">Monday</span>
+        <span class="tag green">Scrum / Agile</span>
+        <span class="tag green">Sprint Planning</span>
+        <span class="tag green">Release Sign-off</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-label">Platforms & Devices</div>
+      <div class="skill-tags">
+        <span class="tag">Cross-Browser Testing</span>
+        <span class="tag">Responsive UI</span>
+        <span class="tag">iOS & Android</span>
+        <span class="tag">OS Matrix Testing</span>
+        <span class="tag">Browserstack</span>
+        <span class="tag">Chrome DevTools</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-label">Automation Exposure</div>
+      <div class="skill-tags">
+        <span class="tag purple">Cypress</span>
+        <span class="tag purple">Selenium</span>
+        <span class="tag purple">CI/CD Awareness</span>
+        <span class="tag purple">Figma Review</span>
+      </div>
+    </div>
+  </div>
+  <div class="tools-strip reveal">
+    <span class="tools-label">Tools</span>
+    <span class="tool-pill">Jira</span>
+    <span class="tool-pill">ClickUp</span>
+    <span class="tool-pill">Linear</span>
+    <span class="tool-pill">Monday</span>
+    <span class="tool-pill">Postman</span>
+    <span class="tool-pill">Swagger</span>
+    <span class="tool-pill">Browserstack</span>
+    <span class="tool-pill">Figma</span>
+    <span class="tool-pill">Chrome DevTools</span>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-label">03 / Experience</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="exp-card reveal">
+    <div class="exp-header">
+      <div>
+        <div class="exp-title">Freelance QA Engineer</div>
+        <div class="exp-company">Self-Employed · Faisalabad, Pakistan</div>
+      </div>
+      <span class="exp-period">2023 – Present</span>
+    </div>
+    <ul class="exp-bullets">
+      <li>Delivered end-to-end QA across 15+ client products spanning SaaS, CRM, EdTech, fintech, and enterprise platforms</li>
+      <li>Executed functional, regression, smoke, sanity, exploratory, UI, and UAT test cycles on complex multi-module apps</li>
+      <li>Produced detailed bug reports with severity classification, expected vs. actual results, and evidence</li>
+      <li>Performed RESTful API testing via Postman & Swagger — positive, negative, and edge-case scenarios</li>
+      <li>Validated RBAC, CRUD workflows, form logic, dashboards, notifications, and approval flows</li>
+      <li>Executed cross-browser, responsive UI, and cross-device mobile testing across all platforms</li>
+      <li>Collaborated with developers, PMs, and designers through sprint planning, bug triage, and release sign-off</li>
+      <li>Ran post-fix verification and regression sweeps to confirm defect closure and prevent regressions</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <span class="section-label">04 / Projects</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <div class="project-type">Productivity · 5 Apps</div>
+      <div class="project-name">Arootah Productivity Suite</div>
+      <div class="project-url">arootah.com · Goal, Time, Habit, Project & Decision Manager</div>
+      <p class="project-desc">
+        5-app coaching & productivity suite for high-performance professionals. Validated scoring algorithms,
+        habit streak logic, analytics dashboards, and notification triggers across web, iOS & Android.
+      </p>
+      <div class="project-phases">
+        <span class="phase-chip">Smoke</span>
+        <span class="phase-chip">Functional</span>
+        <span class="phase-chip">Cross-Module Regression</span>
+        <span class="phase-chip">Cross-Platform UI</span>
+        <span class="phase-chip">ClickUp</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-type">Real Estate · CRM</div>
+      <div class="project-name">Amichai CRM</div>
+      <div class="project-url">Real Estate Client & Transaction Management</div>
+      <p class="project-desc">
+        CRM platform for property listings, transactions, and contract management. Validated OTP authentication,
+        end-to-end deal workflows, RBAC enforcement, and payment gateway integration.
+      </p>
+      <div class="project-phases">
+        <span class="phase-chip">Smoke</span>
+        <span class="phase-chip">Functional</span>
+        <span class="phase-chip">RBAC</span>
+        <span class="phase-chip">E2E Transactions</span>
+        <span class="phase-chip">Jira</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-type">EdTech · AI Platform</div>
+      <div class="project-name">Maitech</div>
+      <div class="project-url">AI-Powered Education Management System</div>
+      <p class="project-desc">
+        AI-driven academic platform with multi-role dashboards and AI question generation. Validated AI output
+        accuracy, academic workflows, role-based permissions, and reporting data integrity.
+      </p>
+      <div class="project-phases">
+        <span class="phase-chip">Smoke</span>
+        <span class="phase-chip">Functional</span>
+        <span class="phase-chip">RBAC</span>
+        <span class="phase-chip">AI Output Validation</span>
+        <span class="phase-chip">Cross-Browser</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-type">Enterprise · Workplace SaaS</div>
+      <div class="project-name">Clika</div>
+      <div class="project-url">Workplace Ecosystem Platform</div>
+      <p class="project-desc">
+        All-in-one workplace management for employee services, corporate events, and office administration.
+        Validated approval workflows, analytics dashboards, and resource booking logic. Tracked in Linear.
+      </p>
+      <div class="project-phases">
+        <span class="phase-chip">Smoke</span>
+        <span class="phase-chip">Functional</span>
+        <span class="phase-chip">Responsive UI</span>
+        <span class="phase-chip">Analytics Validation</span>
+        <span class="phase-chip">Linear</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-type">Engineering · Niche SaaS</div>
+      <div class="project-name">Gcode Genie</div>
+      <div class="project-url">CNC Optimization & AI Insights Tool</div>
+      <p class="project-desc">
+        Specialized SaaS for CNC machinists with G-code processing, 3D drill visualization, and AI-driven
+        analysis. Tested file parsing, rendering accuracy, analysis outputs, export integrity, and AI insights.
+      </p>
+      <div class="project-phases">
+        <span class="phase-chip">File Upload Testing</span>
+        <span class="phase-chip">3D Rendering QA</span>
+        <span class="phase-chip">AI Insights</span>
+        <span class="phase-chip">Export Validation</span>
+        <span class="phase-chip">Regression</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-type">Compliance · Web & Mobile</div>
+      <div class="project-name">AirQMS</div>
+      <div class="project-url">Quality Management System</div>
+      <p class="project-desc">
+        Compliance-focused QMS with CAPA workflows, risk assessments, and multi-level approval chains.
+        Performed end-to-end workflow, negative, and web-vs-mobile parity testing. Tracked in Monday.
+      </p>
+      <div class="project-phases">
+        <span class="phase-chip">CAPA Workflow</span>
+        <span class="phase-chip">Negative Testing</span>
+        <span class="phase-chip">Approval Chains</span>
+        <span class="phase-chip">Web-Mobile Parity</span>
+        <span class="phase-chip">Monday</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-type">AI · Telephony Platform</div>
+      <div class="project-name">DialexAI</div>
+      <div class="project-url">dialexai.com · AI-Powered Voice Automation</div>
+      <p class="project-desc">
+        AI voice agent platform for automated sales calls, virtual secretary, and debt collection — built on
+        GPT & Twilio. Tested agent configuration, call flows, Google Calendar scheduling, and payment links.
+      </p>
+      <div class="project-phases">
+        <span class="phase-chip">Agent Config</span>
+        <span class="phase-chip">Call Flow Logic</span>
+        <span class="phase-chip">Scheduling Integration</span>
+        <span class="phase-chip">Edge-Case Testing</span>
+        <span class="phase-chip">Payment Flows</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrapper reveal">
+    <h2 class="contact-title">Let's work together</h2>
+    <p class="contact-sub">Open to freelance projects, full-time roles, and contract QA work.</p>
+    <div class="contact-links">
+      <a href="mailto:mubashirhamid675@gmail.com" class="btn btn-primary">✉ mubashirhamid675@gmail.com</a>
+      <a href="https://linkedin.com" class="btn btn-outline">LinkedIn ↗</a>
+      <a href="tel:+923075216167" class="btn btn-outline">+92 307 521 6167</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Muhammad Mubashir · QA Engineer · Faisalabad, Pakistan · Built for GitHub Pages</p>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Active nav highlight
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(sec => {
+    if (window.scrollY >= sec.offsetTop - 100) current = sec.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current
+      ? 'var(--accent)' : '';
+  });
+});
+</script>
+</body>
+</html>
