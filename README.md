@@ -95,7 +95,7 @@ Government College University Faisalabad · 2021 – 2025
 |---|---|
 | **Email** | mubashirhamid675@gmail.com |
 | **Phone** | +92 307 521 6167 |
-| **LinkedIn** | [linkedin.com/in/mubashir](https://linkedin.com) |
+| **LinkedIn** | [linkedin.com/in/mubashir](www.linkedin.com/in/muhammadmubashir30) |
 | **Portfolio** | [mubashirhamid.github.io](https://mubashirhamid.github.io) |
 
 ---
