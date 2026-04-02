@@ -27,7 +27,7 @@ I specialise in finding what breaks before your users do — through structured 
 
 ## 💼 Experience
 
-**Freelance QA Engineer** · Self-Employed · 2023 – Present
+**SQA Engineer** · Millionaire Tech · 2023 – Present
 
 - Delivered QA across 15+ client products spanning SaaS, CRM, EdTech, fintech, and enterprise platforms
 - Executed functional, regression, smoke, exploratory, UI, and UAT test cycles on complex multi-module applications
